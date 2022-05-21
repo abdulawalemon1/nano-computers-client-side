@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 
 const Login = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+
+
     return (
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row-reverse">
@@ -28,6 +35,9 @@ const Login = () => {
                         </div>
                         <div class="form-control mt-6">
                             <button class="btn btn-primary">Login</button>
+                        </div>
+                        <div class="form-control mt-6">
+                            <button class="btn btn-success">Sign In with Google</button>
                         </div>
                     </div>
                 </div>
