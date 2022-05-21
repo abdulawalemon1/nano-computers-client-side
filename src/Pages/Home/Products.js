@@ -10,8 +10,8 @@ const Products = () => {
     }, [])
     return (
         <div>
-            <h2>Products: {products.length}</h2>
-            <div className='px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <h2 className='text-4xl font-bold font-serif text-center mb-7'>Inventory</h2>
+            <div className='grid gird-cols-1 lg:grid-cols-3 gap-4'>
                 {
                     products.slice(0, 6).map(product => <Product
                         key={product._id}

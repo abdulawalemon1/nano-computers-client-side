@@ -6,10 +6,10 @@ import Products from './Products';
 
 const Home = () => {
     return (
-        <div>
+        <div className='px-12'>
             <Banner></Banner>
-            <BusinessSummary></BusinessSummary>
             <Products></Products>
+            <BusinessSummary></BusinessSummary>
         </div>
     );
 };

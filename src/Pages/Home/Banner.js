@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div class="hero min-h-screen bg-base-200 px-12">
+        <div class="hero min-h-screen bg-base-100">
             <div class="hero-content flex-col lg:flex-row">
                 <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl" />
                 <div>
