@@ -13,7 +13,7 @@ const Products = () => {
             <h2>Products: {products.length}</h2>
             <div className='px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    products.map(product => <Product
+                    products.slice(0, 6).map(product => <Product
                         key={product._id}
                         product={product}
                     ></Product>)

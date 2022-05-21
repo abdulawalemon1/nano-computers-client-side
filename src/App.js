@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home/Home';
 import Purchase from './Pages/Purchase/Purchase';
+import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Purchase />}></Route>
         <Route path='*' element={<Purchase />}></Route>
       </Routes>
+      <Footer></Footer>
 
     </div>
   );
