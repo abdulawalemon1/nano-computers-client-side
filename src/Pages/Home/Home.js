@@ -1,7 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
-import { GrUserExpert } from 'react-icons/gr';
 import Products from './Products';
 
 const Home = () => {
