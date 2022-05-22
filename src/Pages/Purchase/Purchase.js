@@ -19,19 +19,23 @@ const Purchase = () => {
     }, [])
 
 
-    // const handleOrderQuantity = event => {
-    //     event.preventDefault();
-    //     const name = event.target.name.value;
-    //     const email = event.target.email.value;
-    //     const contact = event.target.contact.value;
-    //     const address = event.target.address.value;
-    //     const orderQuantity = event.target.orderQuantity.value;
-    //     console.log(name);
-    // }
 
-    const onSubmit = async data => {
-        await console.log(data);
+    const onSubmit = data => {
+        console.log(data);
+        const orderQuantity = parseInt(data.orderQuantity);
+        const order = {
+            _id: id,
+            name: product.name,
+            orderQuantity: orderQuantity,
+            amount: orderQuantity * product.price,
+            userName: user.displayName,
+            email: user.email,
+            contact: data.contact,
+            address: data.address
+        }
 
+        fetch(``)
+        console.log(order);
 
     };
 
