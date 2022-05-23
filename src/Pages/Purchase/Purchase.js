@@ -1,8 +1,8 @@
-import { async } from '@firebase/util';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = () => {
@@ -24,18 +24,34 @@ const Purchase = () => {
         console.log(data);
         const orderQuantity = parseInt(data.orderQuantity);
         const order = {
-            _id: id,
+            productId: id,
             name: product.name,
             orderQuantity: orderQuantity,
             amount: orderQuantity * product.price,
             userName: user.displayName,
             email: user.email,
             contact: data.contact,
-            address: data.address
+            address: data.address,
+            status: 'unpaid'
         }
 
-        fetch(``)
-        console.log(order);
+        fetch(`http://localhost:5000/order/`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast.success('Order has been placed. Please, pay soon!')
+                } else {
+                    toast.error('You have already ordered this product. Please, pay soon and order again!')
+
+                }
+                console.log(data);
+            })
 
     };
 

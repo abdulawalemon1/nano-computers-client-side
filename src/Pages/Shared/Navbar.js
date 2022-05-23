@@ -15,7 +15,10 @@ const Navbar = () => {
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/purchase'>Purchase</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        {
+            user &&
+            <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
         <li><Link to='/blogs'>Blogs</Link></li>
         <li><Link to='/portfolio'>My Portfolio</Link></li>
     </>
@@ -42,10 +45,22 @@ const Navbar = () => {
                     user ?
                         <>
                             <h2>{user?.displayName}</h2>
-                            <button onClick={logout} className='btn btn-ghost'>Sign Out</button>
+                            <button onClick={logout} className='btn btn-ghost'>
+                                Sign Out
+                            </button>
                         </>
                         :
                         <Link className='btn btn-ghost' to='/login'>Login</Link>
+                }
+                {
+                    <div>
+
+                        <label for="dashboard-side-bar" class="btn btn-primary drawer-button lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+
+                        </label>
+                    </div>
+
                 }
             </div>
         </div>
