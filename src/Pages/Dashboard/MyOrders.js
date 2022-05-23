@@ -61,15 +61,21 @@ const MyOrders = () => {
                                     <td>{order.status}</td>
                                     <tr>
                                         <td>
-                                            <label for="cancel-modal" class="btn btn-primary'">Cancel</label>
-                                            <div>
+                                            {
+                                                order.status === 'paid' ?
+
+                                                    <label disabled for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
+
+                                                    :
+                                                    <label for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
+                                            }                                            <div>
                                                 <input type="checkbox" id="cancel-modal" class="modal-toggle" />
                                                 <div class="modal">
                                                     <div class="modal-box relative">
                                                         <label for="cancel-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                                         <h3 class="text-lg font-bold">Are you sure you want to cancel the order?</h3>
                                                         <div class="modal-action">
-                                                            <label onClick={() => handleCancel(order._id)} for="cancel-modal" class="btn">Confirm</label>
+                                                            <label onClick={() => handleCancel(order._id)} for="cancel-modal" class="btn btn-primary">Confirm</label>
                                                         </div>
                                                     </div>
 
