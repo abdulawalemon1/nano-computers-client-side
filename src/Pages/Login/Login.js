@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 
 
@@ -15,22 +16,29 @@ const Login = () => {
         user,
         loading,
         error
-    ] = useSignInWithEmailAndPassword(auth)
+    ] = useSignInWithEmailAndPassword(auth);
+    const [token] = useToken(guser || user);
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
     let errorMessage;
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true })
+        }
+    }, [token, from, navigate])
+
     if (error || gerror) {
         errorMessage = <p className='text-red-500 text-center'>{error?.message || gerror?.message}</p>
     }
+
 
     if (loading || gloading) {
         return <Loading></Loading>
     }
 
-    if (guser || user) {
-        navigate(from, { replace: true })
-    }
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
 

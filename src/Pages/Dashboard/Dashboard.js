@@ -18,6 +18,7 @@ const Dashboard = () => {
                         <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard">My Orders</Link></li>
                         <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/review">My Review</Link></li>
                         <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/profile">My Profile</Link></li>
+                        <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/users">All Users</Link></li>
                     </ul>
 
                 </div>

@@ -15,7 +15,6 @@ const AddReview = () => {
             review: data.review,
 
         }
-        console.log(userReview);
 
         fetch(`http://localhost:5000/reviews/`, {
             method: 'POST',
