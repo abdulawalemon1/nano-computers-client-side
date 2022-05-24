@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 const MyOrders = () => {
 
@@ -36,7 +37,7 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2>My orders:{orders.length}</h2>
+            <h2 className='mt-10 mb-5 text-center text-primary text-2xl'>My orders: {orders.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     {/* <!-- head --> */}
@@ -62,12 +63,12 @@ const MyOrders = () => {
                                     <tr>
                                         <td>
                                             {
-                                                order.status === 'paid' ?
+                                                order.status !== 'paid' ?
 
-                                                    <label disabled for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
+                                                    <label for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
 
                                                     :
-                                                    <label for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
+                                                    <label disabled for="cancel-modal" class="btn btn-primary bg-primary">Cancel</label>
                                             }                                            <div>
                                                 <input type="checkbox" id="cancel-modal" class="modal-toggle" />
                                                 <div class="modal">
@@ -84,8 +85,8 @@ const MyOrders = () => {
                                         </td>
 
                                         {
-                                            order.status === 'paid' || 'shipped' || 'pending' ?
-                                                <td><button className='btn btn-primary'>Pay</button></td>
+                                            order.status !== 'paid' ?
+                                                <td><Link to={`/payment/${order._id}`} className='btn btn-primary'>Pay</Link></td>
 
                                                 :
                                                 <td><button disabled className='btn btn-primary'>Pay</button></td>

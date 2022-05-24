@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import AddReview from './Pages/Dashboard/AddReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Payment/Payment';
 
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
         <Route path='/products/:id' element={
           <RequireAuth>
             <Purchase />
+          </RequireAuth>
+        }></Route>
+        <Route path='/payment/:id' element={
+          <RequireAuth>
+            <Payment />
           </RequireAuth>
         }></Route>
         <Route path='/dashboard' element={
