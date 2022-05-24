@@ -49,6 +49,7 @@ const MyOrders = () => {
                             <th>Amount in TK</th>
                             <th>Status</th>
                             <th>Action</th>
+                            <th>Transaction ID</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,6 +93,8 @@ const MyOrders = () => {
                                                 <td><button disabled className='btn btn-primary'>Pay</button></td>
                                         }
                                     </tr>
+                                    <td>{order?.transactionId || 'Not Available'}</td>
+
                                 </tr>
                             )
                         }

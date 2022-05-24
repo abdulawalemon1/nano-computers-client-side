@@ -16,12 +16,11 @@ const Purchase = () => {
         fetch(`http://localhost:5000/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [id])
 
 
 
     const onSubmit = data => {
-        console.log(data);
         const orderQuantity = parseInt(data.orderQuantity);
         const order = {
             productId: id,
@@ -50,7 +49,6 @@ const Purchase = () => {
                     toast.error('You have already ordered this product. Please, pay soon and order again!')
 
                 }
-                console.log(data);
             })
 
     };
