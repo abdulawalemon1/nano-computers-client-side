@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../../Hooks/useAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     return (
         <div>
             <div class="drawer drawer-mobile">
@@ -15,10 +20,24 @@ const Dashboard = () => {
                     <label for="dashboard-side-bar" class="drawer-overlay"></label>
                     <ul class="menu p-4 overflow-y-auto w-80 bg-base-300 text-base-content">
                         {/* <!-- Sidebar content here --> */}
-                        <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard">My Orders</Link></li>
-                        <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/review">My Review</Link></li>
-                        <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/profile">My Profile</Link></li>
-                        <li className='bg-primary my-2 rounded-lg text-base-100'><Link to="/dashboard/users">All Users</Link></li>
+                        {
+                            !admin && <li className='bg-primary my-2 rounded-lg text-white font-bold '><Link to="/dashboard">My Orders</Link></li>
+                        }
+                        {
+                            !admin && <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/review">My Review</Link></li>
+                        }                        <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/profile">My Profile</Link></li>
+                        {
+                            admin && <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/users">All Users</Link></li>
+                        }
+                        {
+                            admin && <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/manageorders">Manage Orders</Link></li>
+                        }
+                        {
+                            admin && <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/manageproducts">Manage Products</Link></li>
+                        }
+                        {
+                            admin && <li className='bg-primary my-2 rounded-lg text-white font-bold'><Link to="/dashboard/addproducts">Add Products</Link></li>
+                        }
                     </ul>
 
                 </div>

@@ -16,6 +16,12 @@ import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Payment/Payment';
 import EditProfile from './Pages/Dashboard/EditProfile';
 import Users from './Pages/Dashboard/Users';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
+import AddProducts from './Pages/Dashboard/AddProducts';
+import NotFound from './Pages/NotFound/NotFound';
+import PortFolio from './Pages/PortFolio/PortFolio';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 function App() {
@@ -40,6 +46,8 @@ function App() {
             <EditProfile />
           </RequireAuth>
         }></Route>
+
+
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard />
@@ -49,12 +57,17 @@ function App() {
           <Route path='review' element={<AddReview></AddReview>}></Route>
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
+          <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
+          <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='addproducts' element={<AddProducts></AddProducts>}></Route>
         </Route>
-        <Route path='/blogs' element={<Purchase />}></Route>
-        <Route path='/portfolio' element={<Purchase />}></Route>
+
+
+        <Route path='/blogs' element={<Blogs />}></Route>
+        <Route path='/portfolio' element={<PortFolio />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp />}></Route>
-        {/* <Route path='*' element={<Purchase />}></Route> */}
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
