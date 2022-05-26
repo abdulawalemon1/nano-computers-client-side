@@ -18,9 +18,9 @@ const Reviews = () => {
                 {
                     reviews.map((review, index) =>
                         <div key={index + 1}>
-                            <div class="card h-52 lg:max-w-lg bg-purple-400	 text-black shadow-2xl">
-                                <div class="card-body">
-                                    <h2 class="card-title">{review.userName}</h2>
+                            <div className="card h-52 lg:max-w-lg bg-purple-400	 text-black shadow-2xl">
+                                <div className="card-body">
+                                    <h2 className="card-title">{review.userName}</h2>
                                     <Rating
                                         className=''
                                         emptySymbol={<img src={greyStar} className="icon w-5" />}

@@ -40,35 +40,35 @@ const AddReview = () => {
         <div>
             <h2 className='text-2xl text-center my-5 text-primary'>Please add a Review</h2>
             <div className='flex justify-center'>
-                <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Rating</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Rating</span>
                             </label>
                             <input className='input input-bordered' type="number" {...register("rating", { required: true, min: 1, max: 5 })} id="" />
                             {errors.rating?.type === 'required' && <p><span className='text-red-500'>Rating field is required!</span></p>}
                             {errors.rating?.type === 'min' && <p><span className='text-red-500'>Rate within a range of 1-5</span></p>}
                             {errors.rating?.type === 'max' && <p><span className='text-red-500'>Rate within a range of 1-5</span></p>}
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Review</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Review</span>
                             </label>
-                            <textarea type="text" {...register("review", { required: true, maxLength: 250 })} placeholder="write a review..." class="input input-bordered h-32" />
+                            <textarea type="text" {...register("review", { required: true, maxLength: 250 })} placeholder="write a review..." className="input input-bordered h-32" />
                             {errors.review?.type === 'required' && <p><span className='text-red-500'>Rating field is required!</span></p>}
 
                         </div>
                         {
 
                             errors.rating ?
-                                <div class="form-control mt-6">
-                                    <input disabled type='submit' class="btn btn-primary" />
+                                <div className="form-control mt-6">
+                                    <input disabled type='submit' className="btn btn-primary" />
                                 </div>
 
                                 :
-                                <div class="form-control mt-6">
-                                    <input type='submit' class="btn btn-primary" />
+                                <div className="form-control mt-6">
+                                    <input type='submit' className="btn btn-primary" />
                                 </div>
                         }
                     </div>

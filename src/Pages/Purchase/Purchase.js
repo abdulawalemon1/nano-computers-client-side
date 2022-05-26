@@ -56,53 +56,53 @@ const Purchase = () => {
     return (
         <div className=''>
             <div className='my-5 mx-12'>
-                <div class="card lg:card-side bg-base-300 shadow-xl">
+                <div className="card lg:card-side bg-base-300 shadow-xl">
                     <figure><img src={product.img} alt="Album" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title text-3xl">{product.name}</h2>
-                        <h2 class="card-title">Product ID: {product._id}</h2>
-                        <h2 class="card-title">Price: {product.price}/Unit</h2>
-                        <h2 class="card-title">Available Quantity: {product.availableQuantity}</h2>
-                        <h2 class="card-title">Minimum Order Quantity: {product.minimumOrderQuantity}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title text-3xl">{product.name}</h2>
+                        <h2 className="card-title">Product ID: {product._id}</h2>
+                        <h2 className="card-title">Price: {product.price}/Unit</h2>
+                        <h2 className="card-title">Available Quantity: {product.availableQuantity}</h2>
+                        <h2 className="card-title">Minimum Order Quantity: {product.minimumOrderQuantity}</h2>
                         <p>{product.description}</p>
 
                     </div>
                 </div>
             </div>
             <div className='flex justify-center my-10'>
-                <form onSubmit={handleSubmit(onSubmit)} class="card flex-shrink-0  w-full max-w-sm shadow-2xl bg-base-300">
-                    <div class="card-body">
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Name</span>
+                <form onSubmit={handleSubmit(onSubmit)} className="card flex-shrink-0  w-full max-w-sm shadow-2xl bg-base-300">
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
                             </label>
                             <input
                                 type="text"
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 disabled
                                 {...register("name", { value: user.displayName })} />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 disabled
                                 {...register("email", { value: user.email })}
                             />
 
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Contact</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Contact</span>
                             </label>
                             <input
                                 type="number"
                                 placeholder="Your Contact Number"
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 {...register("contact", {
                                     required: {
                                         value: true,
@@ -119,14 +119,14 @@ const Purchase = () => {
                                 {errors.contact?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.contact.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Address</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Address</span>
                             </label>
                             <input
                                 type="text"
                                 placeholder="Your Address"
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 {...register("address", {
                                     required: {
                                         value: true,
@@ -139,15 +139,15 @@ const Purchase = () => {
                             </label>
                         </div>
 
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Order Quantity</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Order Quantity</span>
                             </label>
                             <input
                                 type="number"
                                 name='orderQuantity'
                                 placeholder="Your Order Quantity"
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 {...register("orderQuantity", {
                                     required: true,
                                     min: product.minimumOrderQuantity,
@@ -166,15 +166,15 @@ const Purchase = () => {
                         {
 
                             errors.orderQuantity ?
-                                <div class="form-control mt-6">
-                                    <input disabled type='submit' value='Proceed Payment' class="btn btn-primary" />
+                                <div className="form-control mt-6">
+                                    <input disabled type='submit' value='Proceed Payment' className="btn btn-primary" />
                                 </div>
                                 :
 
 
 
-                                <div class="form-control mt-6">
-                                    <input type='submit' value='Proceed Payment' class="btn btn-primary" />
+                                <div className="form-control mt-6">
+                                    <input type='submit' value='Proceed Payment' className="btn btn-primary" />
                                 </div>
                         }
 

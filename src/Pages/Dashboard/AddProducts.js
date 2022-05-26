@@ -36,39 +36,39 @@ const AddProducts = () => {
         <div>
             <h2 className='text-primary text-2xl my-5 text-center'>Add Products</h2>
             <div className='mx-10 my-10 flex justify-center'>
-                <form onSubmit={handleAddProduct} class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
-                    <div class="card-body ">
+                <form onSubmit={handleAddProduct} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
+                    <div className="card-body ">
                         <h2 className='text-center'> Product</h2>
-                        <div class="form-control">
+                        <div className="form-control">
 
-                            <input type="text" id='name' name='name' required placeholder='Product Name' class="input input-bordered" />
+                            <input type="text" id='name' name='name' required placeholder='Product Name' className="input input-bordered" />
                         </div>
-                        <div class="form-control">
+                        <div className="form-control">
 
-                            <input type="number" name='price' required placeholder='Price' class="input input-bordered" />
+                            <input type="number" name='price' required placeholder='Price' className="input input-bordered" />
                         </div>
-                        <div class="form-control">
+                        <div className="form-control">
 
-                            <input type="number" name='availableQuantity' required placeholder='Quantity' class="input input-bordered" />
+                            <input type="number" name='availableQuantity' required placeholder='Quantity' className="input input-bordered" />
                         </div>
-                        <div class="form-control">
+                        <div className="form-control">
 
-                            <input type="number" name='minimumOrderQuantity' required placeholder='Minimum Order Quantity' class="input input-bordered" />
-                        </div>
-
-                        <div class="form-control">
-
-                            <input type="text" name='img' required placeholder="Image Link" class="input input-bordered" />
-
-                        </div>
-                        <div class="form-control">
-
-                            <textarea type="text" name='description' required placeholder="write a brief description..." class="input input-bordered h-40" />
-
+                            <input type="number" name='minimumOrderQuantity' required placeholder='Minimum Order Quantity' className="input input-bordered" />
                         </div>
 
-                        <div class="form-control mt-6">
-                            <input type='submit' class="btn btn-primary" />
+                        <div className="form-control">
+
+                            <input type="text" name='img' required placeholder="Image Link" className="input input-bordered" />
+
+                        </div>
+                        <div className="form-control">
+
+                            <textarea type="text" name='description' required placeholder="write a brief description..." className="input input-bordered h-40" />
+
+                        </div>
+
+                        <div className="form-control mt-6">
+                            <input type='submit' className="btn btn-primary" />
                         </div>
                     </div>
                 </form>

@@ -9,16 +9,16 @@ const Dashboard = () => {
     const [admin] = useAdmin(user);
     return (
         <div>
-            <div class="drawer drawer-mobile">
-                <input id="dashboard-side-bar" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content ">
+            <div className="drawer drawer-mobile">
+                <input id="dashboard-side-bar" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content ">
                     <h2 className='text-3xl text-center text-primary font-bold'>Welcome to Dashboard</h2>
                     <Outlet></Outlet>
 
                 </div>
-                <div class="drawer-side">
-                    <label for="dashboard-side-bar" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto w-80 bg-base-300 text-base-content">
+                <div className="drawer-side">
+                    <label for="dashboard-side-bar" className="drawer-overlay"></label>
+                    <ul className="menu p-4 overflow-y-auto w-80 bg-base-300 text-base-content">
                         {/* <!-- Sidebar content here --> */}
                         {
                             !admin && <li className='bg-primary my-2 rounded-lg text-white font-bold '><Link to="/dashboard">My Orders</Link></li>

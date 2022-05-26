@@ -19,8 +19,8 @@ const MyProfile = () => {
         <div className=''>
             <h2 className='text-center text-2xl text-primary'>My Profile</h2>
             <div className='grid sm:grid-cols-1 lg:grid-cols-2' >
-                <div class="">
-                    <div class="">
+                <div className="">
+                    <div className="">
                         <img className='w-56 rounded-full ml-16 lg:ml-32' src={userdata.imglink ? userdata.imglink : user.photoURL} />
 
                     </div>
