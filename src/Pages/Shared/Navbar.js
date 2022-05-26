@@ -46,12 +46,12 @@ const Navbar = () => {
                     user ?
                         <>
                             <h2>{user?.displayName}</h2>
-                            <button onClick={logout} className='btn btn-ghost'>
+                            <button onClick={logout} className='btn btn-primary mx-3'>
                                 Sign Out
                             </button>
                         </>
                         :
-                        <Link className='btn btn-ghost' to='/login'>Login</Link>
+                        <Link className='btn btn-primary' to='/login'>Login</Link>
                 }
                 {
                     <div>

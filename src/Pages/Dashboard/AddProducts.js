@@ -15,7 +15,7 @@ const AddProducts = () => {
             img: event.target.img.value,
             description: event.target.description.value
         }
-        fetch(`http://localhost:5000/products/`, {
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/products/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

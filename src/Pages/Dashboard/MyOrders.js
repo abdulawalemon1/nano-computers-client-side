@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`https://mysterious-wildwood-08866.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const MyOrders = () => {
 
     const handleCancel = id => {
 
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/order/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
@@ -11,9 +11,8 @@ const Purchase = () => {
     const [user] = useAuthState(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])
@@ -21,7 +20,8 @@ const Purchase = () => {
 
 
     const onSubmit = data => {
-        const orderQuantity = parseInt(data.orderQuantity);
+        const orderQuantity = parseInt(data.orderQuantity.value);
+        console.log(orderQuantity);
         const order = {
             productId: id,
             name: product.name,
@@ -33,8 +33,7 @@ const Purchase = () => {
             address: data.address,
             status: 'unpaid'
         }
-
-        fetch(`http://localhost:5000/order/`, {
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/order/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,9 +43,9 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    toast.success('Order has been placed. Please, pay soon!')
+                    return toast.success('Order has been placed. Please, pay soon!')
                 } else {
-                    toast.error('You have already ordered this product. Please, pay soon and order again!')
+                    return toast.error('You have already ordered this product. Please, pay soon and order again!')
 
                 }
             })
@@ -58,7 +57,7 @@ const Purchase = () => {
         <div className=''>
             <div className='my-5 mx-12'>
                 <div class="card lg:card-side bg-base-300 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/album?w=400&h=400" alt="Album" /></figure>
+                    <figure><img src={product.img} alt="Album" /></figure>
                     <div class="card-body">
                         <h2 class="card-title text-3xl">{product.name}</h2>
                         <h2 class="card-title">Product ID: {product._id}</h2>
@@ -80,7 +79,6 @@ const Purchase = () => {
                             <input
                                 type="text"
                                 class="input input-bordered"
-                                // defaultValue={user.displayName}
                                 disabled
                                 {...register("name", { value: user.displayName })} />
                         </div>
@@ -93,7 +91,6 @@ const Purchase = () => {
                                 placeholder="Your Email"
                                 class="input input-bordered"
                                 disabled
-                                // defaultValue={user.email}
                                 {...register("email", { value: user.email })}
                             />
 
@@ -148,15 +145,17 @@ const Purchase = () => {
                             </label>
                             <input
                                 type="number"
+                                name='orderQuantity'
                                 placeholder="Your Order Quantity"
                                 class="input input-bordered"
                                 {...register("orderQuantity", {
                                     required: true,
                                     min: product.minimumOrderQuantity,
-                                    max: product.availableQuantity
+                                    max: product.availableQuantity,
 
                                 })}
-                                defaultValue={product.minimumOrderQuantity} />
+                                defaultValue={product.minimumOrderQuantity}
+                            />
                             <label className='label'>
                                 {errors.orderQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.orderQuantity.message}</span>}
                                 {errors.orderQuantity?.type === 'min' && <span className="label-text-alt text-red-500">You cant order less than minimum order Quantity!</span>}
@@ -170,8 +169,10 @@ const Purchase = () => {
                                 <div class="form-control mt-6">
                                     <input disabled type='submit' value='Proceed Payment' class="btn btn-primary" />
                                 </div>
-
                                 :
+
+
+
                                 <div class="form-control mt-6">
                                     <input type='submit' value='Proceed Payment' class="btn btn-primary" />
                                 </div>

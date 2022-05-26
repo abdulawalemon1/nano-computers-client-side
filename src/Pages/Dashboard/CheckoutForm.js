@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, amount, userName, email } = order;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm = ({ order }) => {
 
 
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://mysterious-wildwood-08866.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

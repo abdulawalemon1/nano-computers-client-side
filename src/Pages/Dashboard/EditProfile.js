@@ -2,10 +2,11 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import useUserdata from '../../Hooks/useUserdata';
 
 const EditProfile = () => {
     const [user] = useAuthState(auth);
-
+    const [userdata] = useUserdata();
 
 
 
@@ -18,9 +19,10 @@ const EditProfile = () => {
             education: event.target.education.value,
             city: event.target.city.value,
             phone: phone,
-            link: event.target.link.value
+            link: event.target.link.value,
+            imglink: event.target.imglink.value
         }
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://mysterious-wildwood-08866.herokuapp.com/user/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +46,7 @@ const EditProfile = () => {
                 <div className='grid sm:grid-cols-1 lg:grid-cols-2' >
 
                     <div class="">
-                        <img className='w-56 rounded-full ml-16 lg:ml-32' src="https://api.lorem.space/image/face?hash=92310" />
+                        <img className='w-56 rounded-full ml-16 lg:ml-32' src={userdata.imglink ? userdata.imglink : "https://api.lorem.space/image/face?hash=92310"} alt='blank' />
 
                     </div>
                     <div className='mx-10'>
@@ -77,6 +79,11 @@ const EditProfile = () => {
                                 <div class="form-control">
 
                                     <input type="text" name='link' required placeholder="LinkedIn Profile Link" class="input input-bordered" />
+
+                                </div>
+                                <div class="form-control">
+
+                                    <input type="text" name='imglink' required placeholder="User Picture Link" class="input input-bordered" />
 
                                 </div>
                                 <div class="form-control mt-6">
