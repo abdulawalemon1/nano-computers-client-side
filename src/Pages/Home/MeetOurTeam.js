@@ -4,8 +4,8 @@ const MeetOurTeam = () => {
     return (
         <div>
             <div className="px-4 py-8 lg:py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16" bis_skin_checked="1">
-                <p className="text-center mb-6 text-2xl font-semibold uppercase tracking-tight text-white md:text-3xl">Top Instructors</p>
-                <p className="text-center mb-24 text-base text-white md:text-md">Learn from the best instructors around the globe at Blink</p>
+                <p className="text-center mb-6 text-2xl font-semibold uppercase tracking-tight text-white md:text-3xl">Meet Our Team</p>
+                <p className="text-center mb-24 text-base text-white md:text-md">The best team around the globe at Nano Computers!</p>
                 <div className="flex items-center space-y-24 lg:space-y-0 flex-col lg:flex-row justify-center" bis_skin_checked="1">
                     <div className="p-4 relative" bis_skin_checked="1">
                         <div className="text-center mb-4 absolute -top-16 right-1/2 transform translate-x-1/2" bis_skin_checked="1">
